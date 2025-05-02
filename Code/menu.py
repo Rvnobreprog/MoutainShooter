@@ -4,7 +4,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from Code.Const import WIN_WIDTH, C_ORANGE
+from Code.Const import WIN_WIDTH, C_ORANGE, MENU_OPTION, C_YELLOW
 
 
 class Menu:
@@ -18,8 +18,14 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(text_size=50, text='AILON', text_color =(255,128,0) , text_center_pos=((WIN_WIDTH/2),70))
-            self.menu_text(text_size=50, text='PERVERT', text_color = (255,128,0),text_center_pos=((WIN_WIDTH / 2),120))
+            self.menu_text(text_size=50, text='MOUNTAIN', text_color =(255,128,0) , text_center_pos=((WIN_WIDTH/2),70))
+            self.menu_text(text_size=50, text='BATTLE', text_color = (255,128,0),text_center_pos=((WIN_WIDTH / 2),120))
+
+            for i in range(len(MENU_OPTION)):
+
+                self.menu_text(text_size=20, text=MENU_OPTION[i], text_color=C_YELLOW,
+                               text_center_pos=((WIN_WIDTH / 2), 200 + 25 * i))
+
             pygame.display.flip()
 
             # Check for all events
